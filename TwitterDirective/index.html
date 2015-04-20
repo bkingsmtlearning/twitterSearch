@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<title>Search Twitter Feeds</title>
+		<meta name="Description" content="Search Twitter Feeds">
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+		
+		<!-- Libraries -->
+		<script src="js/angular.js"></script>
+		<script src="js/angular-resource.js"></script>
+		
+		<!-- AngularJS custom codes -->
+		<script src="app/app.js"></script>
+		<script src="app/directives.js"></script>
+		
+		<!-- Some Bootstrap Helper Libraries -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>	
+		<script src="js/ui-bootstrap-tpls-0.11.2.min.js"></script>	
+		
+		<script src="js/Base64.js"></script>
+	</head>
+<body>
+
+<div ng-controller="TwitterCtrl">
+	<input ng-model="query" placeholder="enter search..." ng-change="callTwitterSearch()" ng-delay="100">
+		    
+    <table class="table table-striped">
+    	<tr ng-repeat="tweet in twitterResult">
+    		<td>{{tweet.text}}</td>
+    	</tr>
+    </table>
+    
+    <div class="alert alert-danger" role="alert" ng-show="userError">
+    	The userID {{query}} cannot be found.
+	</div>
+</div>
+
+</body>
+</html>	
