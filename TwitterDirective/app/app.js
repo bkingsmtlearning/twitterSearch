@@ -26,7 +26,7 @@ function TwitterCtrl ($scope, $resource, twitter) {
 			$scope.twitter.get({q:query}, $scope.getTwitterResults);
 		}else{
 			$scope.isUser = false;
-			$scope.twitter.get({q:$scope.query}, $scope.getTwitterResults);
+			$scope.twitter.get({q:$scope.query}, $scope.getTwitterResults, function(){$scope.twitterResult = []});
 		}	
 	}
 	
